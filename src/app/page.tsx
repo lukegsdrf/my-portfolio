@@ -1,3 +1,5 @@
+"use client"; // ← Add this at the top!
+
 import Image from "next/image";
 import { useState } from "react";
 
@@ -5,7 +7,6 @@ export default function Home() {
   // State to track game score
   const [score, setScore] = useState(0);
 
-  // Function to increase score when button is clicked
   const handleClick = () => setScore(score + 1);
 
   return (
@@ -14,7 +15,7 @@ export default function Home() {
 
       {/* GIF */}
       <Image
-        src="/myGif.gif" // Make sure this GIF is in the public folder
+        src="/myGif.gif"
         alt="A cool GIF"
         width={300}
         height={200}
