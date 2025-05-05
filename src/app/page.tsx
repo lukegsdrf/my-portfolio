@@ -1,16 +1,18 @@
-"use client"; // ← Add this at the top!
+"use client"; // Allows React hooks
 
 import Image from "next/image";
-import { useState } from "react";
+import Link from "next/link"; // Import Link component for navigation
 
 export default function Home() {
-  // State to track game score
-  const [score, setScore] = useState(0);
-
-  const handleClick = () => setScore(score + 1);
-
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-10 bg-gray-900 text-white">
+      {/* Navigation Button to About Page */}
+      <Link href="/about">
+        <button className="absolute top-4 left-4 px-4 py-2 bg-blue-500 hover:bg-blue-700 rounded-lg text-white text-lg">
+          About Me
+        </button>
+      </Link>
+
       <h1 className="text-4xl font-bold mb-4">Hi, my name is Luke Gusdorf</h1>
 
       {/* GIF */}
@@ -25,9 +27,8 @@ export default function Home() {
       {/* Simple Click Game */}
       <div className="text-center bg-gray-800 p-6 rounded-lg shadow-lg">
         <h2 className="text-xl font-semibold mb-2">Click the button to increase your score!</h2>
-        <p className="text-2xl font-bold">{score}</p>
+        <p className="text-2xl font-bold">0</p>
         <button
-          onClick={handleClick}
           className="mt-4 px-6 py-2 bg-blue-500 hover:bg-blue-700 transition rounded-lg text-lg font-medium"
         >
           Click Me!
